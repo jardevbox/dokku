@@ -146,7 +146,7 @@ is_valid_app_name() {
   fi
 
   [[ -d "$DOKKU_ROOT/$APP" ]] && rm -rf "${DOKKU_ROOT:?}/$APP"
-  dokku_log_fail "App name must begin with lowercase alphanumeric character"
+  dokku_log_fail "App name must be a valid domain or subdomain"
 }
 
 verify_app_name() {
