@@ -24,8 +24,17 @@ teardown () {
   run dokku apps:create 1994testapp
   echo "output: "$output
   echo "status: "$status
-  assert_success
-  dokku --force apps:destroy 1994testapp
+  assert_failure
+
+  run dokku apps:create testapp:latest
+  echo "output: "$output
+  echo "status: "$status
+  assert_failure
+
+  run dokku apps:create testApp:latest
+  echo "output: "$output
+  echo "status: "$status
+  assert_failure
 
   run dokku apps:create TestApp
   echo "output: "$output
